@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+#wrap {
+	width:1200px;
+	margin:auto;
+	background-color:rgb(250,250,250);
+}
+
+.space {
+	width:300px;
+	background-color:rgb(255,255,255);
+	border:1px solid #dddddd;
+	margin:auto;
+}
+
+header > .logo {
+	font-family:Impact, Charcoal, sans-serif;
+	font-size:32px;
+}
+
+section {
+	width:230px;
+	margin:auto;
+}
+
+.otherLoginBtn {
+	font-size:12px;
+	background-color:rgb(255,232,18);
+	color:black;
+}
+
+.line {
+	display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 12px;
+    margin: 8px 0px;
+}
+
+.line::before,
+.line::after {
+	content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 14px;
+}
+
+.button {
+	background: rgb(50,84,96);
+	color:white;
+}
+
+.login {
+	width:300px;
+	height:50px;
+	background-color:rgb(255,255,255);
+	border:1px solid #dddddd;
+	margin:auto;
+}
+
+footer {
+	font-size:12px;
+}
+
+.logo,
+.springText,
+.summerText,
+.autumnText,
+.winterText {
+	font-family:fantasy;	
+}
+
+.contentSpring {
+	left:585px;
+	background-color:rgb(179,216,165);
+}
+
+.contentSummer {
+	background-color:rgb(168,194,219);
+}
+
+.contentAutumn {
+	left:585px;
+	background-color:rgb(213,195,189);
+}
+
+.contentWinter {
+	background-color:rgb(228,204,162);
+}
