@@ -41,4 +41,9 @@ public class UserBO {
 		return count != 0;
 	}
 	
+	
+	// 비밀번호 변경
+	
+	
+	
 }

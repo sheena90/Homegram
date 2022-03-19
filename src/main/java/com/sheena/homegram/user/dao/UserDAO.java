@@ -25,4 +25,8 @@ public interface UserDAO {
 	
 	// 중복체크
 	public int selectLoginIdCount(@Param("loginId") String loginId);
+	
+	
+	// 비밀번호 찾기
+	
 }

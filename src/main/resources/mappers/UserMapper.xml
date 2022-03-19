@@ -53,5 +53,9 @@
 		WHERE
 			`loginId` = #{loginId}
 	</select>
+	
+	
+	<!-- 비밀번호 찾기 -->
+	
 
 </mapper>

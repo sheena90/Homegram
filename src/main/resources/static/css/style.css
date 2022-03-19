@@ -6,6 +6,8 @@
 	background-color:rgb(250,250,250);
 }
 
+a:hover { text-decoration:none !important; }
+
 .space {
 	width:300px;
 	background-color:rgb(255,255,255);
@@ -74,20 +76,40 @@ footer {
 	font-family:fantasy;	
 }
 
-.contentSpring {
+.aboutContentSpring {
 	left:585px;
 	background-color:rgb(179,216,165);
 }
 
-.contentSummer {
+.aboutContentSummer {
 	background-color:rgb(168,194,219);
 }
 
-.contentAutumn {
+.aboutContentAutumn {
 	left:585px;
 	background-color:rgb(213,195,189);
 }
 
-.contentWinter {
+.aboutContentWinter {
 	background-color:rgb(228,204,162);
+}
+
+.findPasswordSpace {
+	width:500px;
+	background-color:rgb(255,255,255);
+	border:1px solid #dddddd;
+	margin:auto;
+}
+
+.findPasswordSection {
+	width:350px;
+	margin:auto;
+}
+
+.findPasswordBackLogin {
+	width:500px;
+	height:50px;
+	background-color:rgb(255,255,255);
+	border:1px solid #dddddd;
+	margin:auto;
 }

@@ -87,5 +87,9 @@ public class UserRestController {
 		result.put("duplicate", duplicate);
 		return result;
 	}
+	
+	
+	// 비밀번호 찾기
+	
 
 }

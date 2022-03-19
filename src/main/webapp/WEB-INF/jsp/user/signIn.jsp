@@ -36,7 +36,7 @@
 					<a href="#" class="otherLoginBtn btn form-control">KakaoTalk으로 로그인</a>
 				</div>
 				<div class="text-center mt-3 mb-3">
-					<a href="#" class="text-secondary"><small>비밀번호를 잊으셨나요?</small></a>
+					<a href="/user/findPassword_view" class="text-secondary" id="findPasswordBtn"><small>비밀번호를 잊으셨나요?</small></a>
 				</div>
 				</form>
 			</section>
@@ -86,7 +86,9 @@
 					}
 				});
 			});
-		});
+			
+			
+
 	</script>
 	
 

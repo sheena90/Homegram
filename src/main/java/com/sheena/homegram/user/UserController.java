@@ -32,4 +32,10 @@ public class UserController {
 		return "user/about";
 	}
 	
+	// 비밀번호 찾기
+	@GetMapping("/findPassword_view")
+	public String findPassword() {
+		return "user/findPassword";
+	}
+	
 }

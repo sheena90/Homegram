@@ -19,7 +19,7 @@
 	<div id="wrap">
 		<div class="d-flex justify-content-between align-items-end ">
 			<div class="pt-3">
-				<span class="logo display-2">Homegram</span>
+				<a href="/user/homegram"><span class="logo display-2 text-dark">Homegram</span></a>
 			</div>
 			<div>
 				<a href="/user/signin_view" class="text-dark font-weight-bold mr-2">로그인</a>
@@ -27,7 +27,7 @@
 		</div>
 		<hr>
 		<div class="mt-5 mb-5">
-			<div class="contentSpring col-6 d-flex">
+			<div class="aboutContentSpring col-6 d-flex">
 				<div class="col-6 mt-5">
 					<span class="springText">Spring is when you feel like whistling even with a shoe full of slush. (Doug Larson)</span>
 				</div>
@@ -35,7 +35,7 @@
 					<img width="300" height="450" alt="spring" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAyMDFfMjAw%2FMDAxNjEyMTQzMTgwMzM1.Ac0srCAbWrirGX128GnUcTpLf7YsQWpc9xCZfJUl-cgg.z1LmPLSOnu2ybn-FY1ykgxrGud8kfGijQ6FSMB5AavMg.JPEG.cool1962%2F19.jpg&type=sc960_832">
 				</div>
 			</div>
-			<div class="contentSummer col-6 d-flex">
+			<div class="aboutContentSummer col-6 d-flex">
 				<div class="col-6 mt-5">
 					<span class="summerText">The summer night is like a perfection of thought. (Wallace Stevens)</span>
 				</div>
@@ -43,7 +43,7 @@
 					<img width="300" height="450" alt="Summer" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F4c%2Fae%2F73%2F4cae73eccaf4dca747bd9a2ceff18644.jpg&type=sc960_832">
 				</div>
 			</div>
-			<div class="contentAutumn col-6 d-flex">
+			<div class="aboutContentAutumn col-6 d-flex">
 				<div class="col-6 mt-5">
 					<span class="autumnText">Autumn is a second spring when every leaf is a flower. (Albert Camus)</span>
 				</div>
@@ -51,7 +51,7 @@
 					<img width="300" height="450" alt="Autumn" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MjZfMTQz%2FMDAxNjAxMDg5MjYyOTQ2.DIVm998g8xWI577VylOQM1DaD7oot-OCO1tzq5TzZfsg.tYDdd-z1TFZL1h2MyxEB1ieniQ1dINOQ9lFPCPsUf3Qg.PNG.soungwoo7377%2F%25B8%25B6%25B8%25A5%25BD%25C4%25B9%25B05.png&type=sc960_832">
 				</div>
 			</div>
-			<div class="contentWinter col-6 d-flex">
+			<div class="aboutContentWinter col-6 d-flex">
 				<div class="col-6 mt-5">
 					<span class="winterText">In the depth of winter, I finally learned that within me there lay an invincible summer. (Albert Camus)</span>
 				</div>

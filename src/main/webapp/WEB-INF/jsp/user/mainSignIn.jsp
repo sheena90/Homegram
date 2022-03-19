@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>Homegram</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">   
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
 							<a href="#" class="otherLoginBtn btn form-control">KakaoTalk으로 로그인</a>
 						</div>
 						<div class="text-center mt-3 mb-3">
-							<a href="#" class="text-secondary"><small>비밀번호를 잊으셨나요?</small></a>
+							<a href="/user/findPassword_view" class="text-secondary"><small>비밀번호를 잊으셨나요?</small></a>
 						</div>
 						</form>
 					</section>
