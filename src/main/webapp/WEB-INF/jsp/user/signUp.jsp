@@ -172,6 +172,17 @@
 				});
 			});
 			
+			// 중복 체크 후, id를 통한 이벤트 등록
+			$("#loginIdInput").on("input", function() {
+				// 중복 확인에 대한 변수 값 초기화
+				isChecked = false;
+				isDuplicate = true;
+				
+				// 중복 확인 텍스트 숨기기
+				$("#possibleText").addClass("d-none");
+				$("#impossibleText").addClass("d-none");
+			});
+			
 		});
 	</script>
 </body>
