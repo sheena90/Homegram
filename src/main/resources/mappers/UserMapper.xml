@@ -15,6 +15,7 @@
 			, `email`
 			, `createdAt`
 			, `updatedAt`
+			, `profile`
 		) VALUE
 		(
 			#{loginId}
@@ -23,6 +24,7 @@
 			, #{email}
 			, now()
 			, now()
+			, #{profile}
 		)
 	</insert>
 	
@@ -36,6 +38,7 @@
 			, `email`
 			, `createdAt`
 			, `updatedAt`
+			, `profile`
 		FROM
 			`user`
 		WHERE

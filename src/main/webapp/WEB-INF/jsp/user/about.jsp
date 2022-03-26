@@ -19,7 +19,7 @@
 	<div id="wrap">
 		<div class="d-flex justify-content-between align-items-end ">
 			<div class="pt-3">
-				<a href="/user/homegram"><span class="logo display-2 text-dark">Homegram</span></a>
+				<a href="/user/homegram"><img width="300" alt="logo" src="/static/image/logo4.PNG"></a>
 			</div>
 			<div>
 				<a href="/user/signin_view" class="text-dark font-weight-bold mr-2">로그인</a>

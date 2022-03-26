@@ -10,6 +10,7 @@ public class UserModel {
 	private String email;
 	private Date createdAt;
 	private Date updatedAt;
+	private String profile;
 	public int getId() {
 		return id;
 	}
@@ -52,6 +53,14 @@ public class UserModel {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+	
+	
 	
 	
 

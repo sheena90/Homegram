@@ -76,7 +76,7 @@
 					data:{"loginId":loginId, "password":password},
 					success:function(data) {
 						if(data.result == "success") {
-							alert("로그인이 되었습니다.");
+							location.href="/post/mainContent_view";
 						} else {
 							alert("아이디/비밀번호를 확인해 주세요.");   // 둘 중 어느 것이 일치하지 않는지 어떻게 확인?
 						}
@@ -87,6 +87,7 @@
 				});
 			});
 			
+		});
 			
 
 	</script>

@@ -19,7 +19,7 @@
 	<div id="wrap">
 		<div class="d-flex justify-content-center">
 			<div class="mr-3 mt-5">
-				<img id="bannerImage" width="300" height="408" alt="Summer" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F4c%2Fae%2F73%2F4cae73eccaf4dca747bd9a2ceff18644.jpg&type=sc960_832">
+				<img id="bannerImage" width="320" height="480" alt="Summer" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F4c%2Fae%2F73%2F4cae73eccaf4dca747bd9a2ceff18644.jpg&type=sc960_832">
 			</div>
 			<div class="ml-3">
 				<div class="space mt-5">
@@ -83,7 +83,7 @@
 					data:{"loginId":loginId, "password":password},
 					success:function(data) {
 						if(data.result == "success") {
-							alert("로그인이 되었습니다.");
+							location.href="/post/mainContent_view";
 						} else {
 							alert("아이디/비밀번호를 확인해 주세요.");   // 둘 중 어느 것이 일치하지 않는지 어떻게 확인?
 						}
