@@ -64,9 +64,9 @@
 							<img class="w-100" src="${post.imagePath }" alt="유저 업로드 사진">
 						</div>
 						
-						<!-- 아이콘 -->
+						<!-- 좋아요, 댓글 아이콘 -->
 						<div class="mainContentLike d-flex justify-content-start align-items-center">
-							<div class="ml-3"><i class="bi bi-heart"></i></div>
+							<div class="ml-3"><a href="#" class="likeBtn" data-post-id="${post.id }"><i class="bi bi-heart text-dark"></i></a></div>
 							<div class="ml-3"><i class="bi bi-chat-square"></i></div>
 						</div>
 						
@@ -204,6 +204,36 @@
 						alert("댓글 쓰기 에러")
 					}
 					
+				});
+				
+			});
+			
+			
+			// 좋아요 이벤트 등록
+			// 여러개의 좋아요 버튼을 하나의 이벤트에서 관리할 때, class를 부여
+			$(".likeBtn").on("click", function(e) {
+				// 해당 태그에 있던 모든 속성, 기능들을 취소해줌.(여기서는 a태그의 페이지 이동을 취소해줌)
+				e.preventDefault();
+				
+				// postId 가져오기
+				let postId = $(this).data("post-id");	
+				
+				// like api 호출
+				$.ajax({
+					type:"get",
+					url:"/post/like",
+					data:{"postId":postId},
+					success:function(data) {
+						
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("좋아요 실패");
+						}
+					},
+					error:function() {
+						alert("좋아요 에러");
+					}
 				});
 				
 			});
