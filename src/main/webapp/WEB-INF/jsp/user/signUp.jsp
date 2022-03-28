@@ -121,7 +121,8 @@
 					success:function(data) {
 						if(data.result == "success") {
 							// 회원가입 성공
-							alert("성공적으로 가입되었습니다.");
+							alert("성공적으로 가입 되었습니다.");
+							location.href="/user/signin_view";
 						} else {
 							alert("가입에 실패되었습니다.");
 						}

@@ -67,7 +67,7 @@ public class UserRestController {
 			session.setAttribute("userId", user.getId());
 			session.setAttribute("userLoginId", user.getLoginId());
 			session.setAttribute("userName", user.getName());
-			session.setAttribute("userProfile", user.getProfile());
+			//session.setAttribute("userProfile", user.getProfile());
 			
 		} else {
 			// 실패

@@ -18,6 +18,7 @@ public class PostController {
 	@Autowired
 	private PostBO postBO;
 	
+
 	// MainContent Page
 	@GetMapping("/mainContent_view")
 	public String mainContentView(Model model) {
@@ -30,15 +31,26 @@ public class PostController {
 		
 		return "post/mainContent";
 	}
+
 	
 	
-	// newPost_photo Page
+	// newPost Page 
+	@GetMapping("/newPost_view")
+	public String newPost() {
+		return "post/newPost";
+	}
+	
+	
+		
+	// 추후 분리하기_사진
+	// newPost_photo Page 
 	@GetMapping("/newPostPhoto_view")
 	public String newPostPhoto() {
 		return "post/newPost_photo";
 	}
 	
 	
+	// 추후 분리하가_게시글
 	// newPost_sentence Page
 	@GetMapping("/newPostSentence_view")
 	public String newPostSentence() {

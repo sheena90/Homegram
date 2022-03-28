@@ -16,11 +16,10 @@
   	
   	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 
-
 </head>
 <body>
 	<div>
-		<div class="newPostSentence">
+		<div class="newPostPhoto">
 			<div class="newPostTitle d-flex m-3">
 				<div class="col-7 d-flex justify-content-end align-items-center"><b>새 게시물 만들기</b></div>
 				<div class="col-5 d-flex justify-content-end align-items-center">
@@ -28,46 +27,46 @@
 				</div>
 			</div>
 			<hr>
-			
-			<div class="newPostSentenceContent d-flex">
-				<!-- 선택 완료된 사진 -->
-				<div class="col-8 h-100 bg-warning">
-					<img src="${post.imagePath }">
+			<div class="uploadBox border rounded bg-white">
+				<div class="text-center display-1 text-secondary">
+					<a href="#" id="imageIcon"><i class="bi bi-images text-secondary"></i></a>
 				</div>
-				<!-- 게시 문구 -->
-				<div class="col-4 h-100">
-					<div class="d-flex align-items-center">
-						<h2><i class="bi bi-person-circle"></i></h2>
-						<b class="ml-4">${userName }</b>
-					</div>
-					<div class="mt-3">
-						<textarea class="form-control w-100 border-0 non-resize" rows="10" cols="2000" placeholder="문구 입력..." id="contentInput"></textarea>
-					</div>
-					<div class="mt-5 d-flex justify-content-between text-secondary">
-						<h5>위치 추가</h5>
-						<h5><i class="bi bi-geo-alt"></i></h5>
-					</div>
-					<hr>
+				<div class="text-center mt-4">
+					<span>사진을 선택하세요</span>
+				</div>
+				<div class="mt-4 text-center d-none">
+					<div><input type="file" id="fileInput"></div>
+				</div>
+				<div class="mt-3">
+					<textarea class="form-control w-100 border-0 non-resize" rows="5" cols="2000" placeholder="문구 입력..." id="contentInput"></textarea>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<script>
-		$(document).ready(function() {
-		
+		$(document).ready(function() { 
+			
+			// 업로드 버튼 이벤트 등록
 			$("#uploadBtn").on("click", function() {
 				
 				let content = $("#contentInput").val().trim();
 				
-				// content 비 필수 항목으로 유효성 검사 필요 없음.
+				
+				// 파일 유효성 검사
+				//$("#fileInput")[0].files[0]
+				if($("#fileInput")[0].files.length == 0) {
+					alert("파일을 선택해주세요");
+					return;
+				}
 				
 				let formData = new FormData();
 				formData.append("content", content);
+				formData.append("file", $("#fileInput")[0].files[0]);
 				
 				$.ajax({
 					type:"post",
-					url:"/post/createSentence",
+					url:"/post/create",
 					data:formData,
 					enctype:"multipart/form-data",
 					processData:false,
@@ -76,14 +75,22 @@
 						if(data.result == "success") {
 							location.href="/post/mainContent_view";
 						} else {
-							alert("글쓰기 실패");
+							alert("업로드 실패");
 						}
 					},
 					error:function() {
-						alert("글쓰기 에러");
+						alert("업로드 에러");
 					}
 				});
 			});
+			
+			
+			// 이미지 아이콘 이벤트 등록
+			$("#imageIcon").on("click", function() {
+				// fileInput 클릭된 효과
+				$("#fileInput").click();
+			});
+			
 		});
 	
 	</script>

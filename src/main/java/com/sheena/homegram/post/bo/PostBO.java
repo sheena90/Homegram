@@ -15,8 +15,18 @@ public class PostBO {
 	
 	@Autowired
 	private PostDAO postDAO;
+	
+	// 통합 버전
+	public int addPost(int userId, String userName, String content, MultipartFile file) {
+		
+		String imagePath = FileManagerService.saveFile(userId, file);
+		
+		return postDAO.insertCreatePost(userId, userName, content, imagePath);
+		
+	}
 
-	// 사진 업로드
+	// 추후 다시 진행하기!
+	// 사진 업로드(분리 버전_사진)
 	public int addPost(int userId, String userName, MultipartFile file) {
 		
 		String imagePath = FileManagerService.saveFile(userId, file);
@@ -25,13 +35,14 @@ public class PostBO {
 	}
 	
 	
-	// 새 게시물 공유하기
-	public int addPost(int userId, String userName, String content, MultipartFile file) {
-		
-		String imagePath = FileManagerService.saveFile(userId, file);
-		
-		return postDAO.insertCreatePost(userId, userName, content, imagePath);
-	}
+	// 추후 다시 진행하기!
+	// 사진 업로드(분리 버전_게시글)
+//	public int addPost(int userId, String userName, String content, MultipartFile file) {
+//		
+//		String imagePath = FileManagerService.saveFile(userId, file);
+//		
+//		return postDAO.insertCreatePost(userId, userName, content, imagePath);
+//	}
 	
 	
 	

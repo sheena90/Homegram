@@ -15,7 +15,6 @@
 			, `email`
 			, `createdAt`
 			, `updatedAt`
-			, `profile`
 		) VALUE
 		(
 			#{loginId}
@@ -24,7 +23,6 @@
 			, #{email}
 			, now()
 			, now()
-			, #{profile}
 		)
 	</insert>
 	

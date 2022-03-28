@@ -32,22 +32,12 @@
 						<a href="#" class="mr-2 text-dark">
 							<i class="bi bi-house-door-fill mr-3"></i>
 						</a>
-						<a href="/post/newPostPhoto_view" class="mr-2 text-dark">
+						<a href="/post/newPost_view" class="mr-2 text-dark">
 							<i class="bi bi-plus-square mr-3"></i>
 						</a>
 						<a href="#" class="mr-2 text-dark">
 							<i class="bi bi-heart mr-3"></i>
 						</a>
-						<c:if test="${not empty userId }">
-							<div class="mr-2 text-dark" id="profileClick">
-								<i class="bi bi-person-circle"></i>
-								<div id="userOptions">
-									<a href="/user/sign_out">로그아웃</a>
-								</div>
-								
-							</div>
-						</c:if>
-						
 					</h4>	
 				</div>
 			</div>
@@ -68,26 +58,30 @@
 							<div class="ml-3"><b>${post.userName }</b></div>
 							<div class="mr-3"><b><i class="bi bi-three-dots"></i></b></div>
 						</div>
+						
 						<!-- 이미지 -->
 						<div>
 							<img class="w-100" src="${post.imagePath }" alt="유저 업로드 사진">
 						</div>
+						
 						<!-- 아이콘 -->
 						<div class="mainContentLike d-flex justify-content-start align-items-center">
 							<div class="ml-3"><i class="bi bi-heart"></i></div>
 							<div class="ml-3"><i class="bi bi-chat-square"></i></div>
 						</div>
+						
 						<!-- 좋아요 개수 표기 -->
 						<div class="mainContentLikeCount">
 							<div class="ml-3">
 								<b>좋아요 10개</b>
 							</div>
 						</div>
+						
 						<!-- 게시글 -->
 						<div class="ml-3">
-							<b>${post.userName }</b> 
-							<span>${post.content }</span>
+							<b>${post.userName }</b> ${post.content }
 						</div>
+						
 						<!-- 댓글 -->
 						<div>
 							<div class="mainContentComment d-flex align-items-end mb-2">
@@ -100,11 +94,12 @@
 								<b>kim</b> 봄 느낌 물씬!!
 							</div>
 						</div>
+						
 						<!-- 댓글 달기 -->
 						<hr class="mt-3">
 						<div class="mainContentWriteComment d-flex">
 							<input type="text" class="form-control border-0" placeholder="댓글 달기...">
-							<button type="button" class="btn btn-link"><b class="text-info">게시</b></button>
+							<button type="button" class="btn btn-link commentBtn"><b class="text-info">게시</b></button>
 						</div>
 					</div>
 					</c:forEach>				
@@ -117,6 +112,9 @@
 						<div class="ml-3">
 							<span class="display-3"><i class="bi bi-person-circle"></i></span>
 							<b class="ml-4">${userName }</b>
+							<c:if test="${not empty userName }">
+								<a href="/user/sign_out" class="ml-5">로그아웃</a>
+							</c:if>
 						</div>
 						
 						<div class="ml-3 mt-5">
@@ -174,12 +172,8 @@
 	<script>
 		$(document).ready(function() {
 			
-			$("#profileClick").on("click", function() {
-				$("#userOptions").show();
-			});
-			
-			$("#profileClick").on("click", function() {
-				$("#userOptions").hide();
+			$(".commentBtn").on("click", function() {
+				alert("댓글 입력 버튼");
 			});
 		});
 	</script>

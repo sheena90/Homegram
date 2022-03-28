@@ -9,20 +9,29 @@ import com.sheena.homegram.post.model.PostModel;
 
 @Repository
 public interface PostDAO {
+	
+	// 통합 버전
+	public int insertCreatePost(
+			@Param("userId") int userId, 
+			@Param("userName") String userName,
+			@Param("content") String content,
+			@Param("imagePath") String imagePath);
 
-	// 사진 업로드
+	// 추후 다시 진행하기!
+	// 사진 업로드(분리 버전_사진)
 	public int insertPost(
 			@Param("userId") int userId, 
 			@Param("userName") String userName,
 			@Param("imagePath") String imagePath);
 	
 	
-	// 새 게시물 공유하기
-	public int insertCreatePost(
-			@Param("userId") int userId, 
-			@Param("userName") String userName,
-			@Param("content") String content,
-			@Param("imagePath") String imagePath);
+	// 추후 다시 진행하기!
+	// 사진 업로드(분리 버전_게시글)
+//	public int insertCreatePost(
+//			@Param("userId") int userId, 
+//			@Param("userName") String userName,
+//			@Param("content") String content,
+//			@Param("imagePath") String imagePath);
 	
 	
 	
