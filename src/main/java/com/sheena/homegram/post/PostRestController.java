@@ -25,7 +25,8 @@ public class PostRestController {
 	// 게시물 업로드(통합 버전)
 	@PostMapping("/create")
 	public Map<String, String> create(
-			@RequestParam("content") String content,
+			// content 비필수 항목으로 설정
+			@RequestParam(value = "content", required = false) String content,
 			@RequestParam("file") MultipartFile file,
 			HttpServletRequest request) {
 		
@@ -35,7 +36,7 @@ public class PostRestController {
 		
 		Map<String, String> result = new HashMap<>();
 		
-		int count = postBO.addPost(userId, userName, file);
+		int count = postBO.addPost(userId, userName, content, file);
 		
 		if(count == 1) {
 			result.put("result", "success");
@@ -50,27 +51,27 @@ public class PostRestController {
 	
 	// 추후 다시 진행하기!
 	// 사진 업로드(분리 버전_사진)
-	@PostMapping("/createPhoto")
-	public Map<String, String> createPhoto(
-			@RequestParam("file") MultipartFile file,
-			HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		int userId = (Integer)session.getAttribute("userId");
-		String userName = (String)session.getAttribute("userName");
-		
-		Map<String, String> result = new HashMap<>();
-		
-		int count = postBO.addPost(userId, userName, file);
-		
-		if(count == 1) {
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
-		
-		return result;
-	}
+//	@PostMapping("/createPhoto")
+//	public Map<String, String> createPhoto(
+//			@RequestParam("file") MultipartFile file,
+//			HttpServletRequest request) {
+//		
+//		HttpSession session = request.getSession();
+//		int userId = (Integer)session.getAttribute("userId");
+//		String userName = (String)session.getAttribute("userName");
+//		
+//		Map<String, String> result = new HashMap<>();
+//		
+//		int count = postBO.addPost(userId, userName, file);
+//		
+//		if(count == 1) {
+//			result.put("result", "success");
+//		} else {
+//			result.put("result", "fail");
+//		}
+//		
+//		return result;
+//	}
 	
 	
 	// 추후 다시 진행하기!

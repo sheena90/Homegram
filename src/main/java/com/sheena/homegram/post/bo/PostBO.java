@@ -27,12 +27,12 @@ public class PostBO {
 
 	// 추후 다시 진행하기!
 	// 사진 업로드(분리 버전_사진)
-	public int addPost(int userId, String userName, MultipartFile file) {
-		
-		String imagePath = FileManagerService.saveFile(userId, file);
-		
-		return postDAO.insertPost(userId, userName, imagePath);
-	}
+//	public int addPost(int userId, String userName, MultipartFile file) {
+//		
+//		String imagePath = FileManagerService.saveFile(userId, file);
+//		
+//		return postDAO.insertPost(userId, userName, imagePath);
+//	}
 	
 	
 	// 추후 다시 진행하기!

@@ -19,10 +19,10 @@ public interface PostDAO {
 
 	// 추후 다시 진행하기!
 	// 사진 업로드(분리 버전_사진)
-	public int insertPost(
-			@Param("userId") int userId, 
-			@Param("userName") String userName,
-			@Param("imagePath") String imagePath);
+//	public int insertPost(
+//			@Param("userId") int userId, 
+//			@Param("userName") String userName,
+//			@Param("imagePath") String imagePath);
 	
 	
 	// 추후 다시 진행하기!

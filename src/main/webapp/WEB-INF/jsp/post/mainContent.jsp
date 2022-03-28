@@ -98,8 +98,8 @@
 						<!-- 댓글 달기 -->
 						<hr class="mt-3">
 						<div class="mainContentWriteComment d-flex">
-							<input type="text" class="form-control border-0" placeholder="댓글 달기...">
-							<button type="button" class="btn btn-link commentBtn"><b class="text-info">게시</b></button>
+							<input type="text" class="form-control border-0" placeholder="댓글 달기..." id="commentInput${post.id }">
+							<button type="button" class="btn btn-link commentBtn" data-post-id="${post.id }"><b class="text-info">게시</b></button>
 						</div>
 					</div>
 					</c:forEach>				
@@ -172,8 +172,40 @@
 	<script>
 		$(document).ready(function() {
 			
+			// 댓글 게시 버튼
 			$(".commentBtn").on("click", function() {
-				alert("댓글 입력 버튼");
+				
+				//postId 가져오기
+				let postId = $(this).data("post-id");
+				
+				// $("#commentInput2") 버튼에 대한 객체
+				let comment = $("#commentInput" + postId).val();
+				
+				// 유효성 검사
+				if(comment == "") {
+					alert("내용을 입력하세요");
+					 return;
+				}
+				
+				// comment api 호출
+				$.ajax({
+					type:"post",
+					url:"/post/comment/create",
+					data:{"postId":postId, "content":comment},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("댓글 쓰기 실패");
+						}
+						
+					},
+					error:function() {
+						alert("댓글 쓰기 에러")
+					}
+					
+				});
+				
 			});
 		});
 	</script>
