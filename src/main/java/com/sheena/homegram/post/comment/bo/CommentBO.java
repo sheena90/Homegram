@@ -16,4 +16,10 @@ public class CommentBO {
 		
 		return commentDAO.insertComment(postId, userId, userName, content);
 	}
+	
+	
+	// postId 기반으로 comment 가져오기
+	public int getComment(int postId) {
+		return commentDAO.selectComment(postId);
+	}
 }

@@ -22,7 +22,15 @@
 				<a href="/user/homegram"><img width="300" alt="logo" src="/static/image/logo4.PNG"></a>
 			</div>
 			<div>
-				<a href="/user/signin_view" class="text-dark font-weight-bold mr-2">로그인</a>
+				<!-- 로그아웃 -->
+				<c:choose>
+					<c:when test="${not empty userName }">
+						<a href="/user/sign_out" class="ml-5">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="/user/signin_view" class="text-dark font-weight-bold mr-2">로그인</a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<hr>

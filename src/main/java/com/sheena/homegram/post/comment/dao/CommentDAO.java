@@ -13,4 +13,8 @@ public interface CommentDAO {
 			@Param("userName") String userName,
 			@Param("content") String content);
 	
+	
+	
+	// postId 기반으로 comment 가져오기
+	public int selectComment(@Param("postId") int postId);
 }

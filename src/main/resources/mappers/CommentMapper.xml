@@ -27,5 +27,15 @@
 			, now()
 		)
 	</insert>
+	
+	<!-- postId 기반으로 comment 가져오기 -->
+	<select id="selectComment" parameterType="int" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			`comment`
+		WHERE
+			`postId` = #{postId}
+	</select>
 
 </mapper>

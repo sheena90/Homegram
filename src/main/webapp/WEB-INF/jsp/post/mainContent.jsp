@@ -50,36 +50,37 @@
 					<div class="mainContentStories">
 							
 					</div>
+					
 					<!-- 상세 업데이트 -->
-					<c:forEach var="post" items="${postList }">
+					<c:forEach var="postDetail" items="${postList }">
 					<div class="mainContentNewContent mt-3">
 						<!-- 유저 정보 -->
 						<div class="mainContentNameInfo d-flex justify-content-between align-items-center">
-							<div class="ml-3"><b>${post.userName }</b></div>
+							<div class="ml-3"><b>${postDetail.post.userName }</b></div>
 							<div class="mr-3"><b><i class="bi bi-three-dots"></i></b></div>
 						</div>
 						
 						<!-- 이미지 -->
 						<div>
-							<img class="w-100" src="${post.imagePath }" alt="유저 업로드 사진">
+							<img class="w-100" src="${postDetail.post.imagePath }" alt="유저 업로드 사진">
 						</div>
 						
 						<!-- 좋아요, 댓글 아이콘 -->
 						<div class="mainContentLike d-flex justify-content-start align-items-center">
-							<div class="ml-3"><a href="#" class="likeBtn" data-post-id="${post.id }"><i class="bi bi-heart text-dark"></i></a></div>
+							<div class="ml-3"><a href="#" class="likeBtn" data-post-id="${postDetail.post.id }"><i class="bi bi-heart text-dark"></i></a></div>
 							<div class="ml-3"><i class="bi bi-chat-square"></i></div>
 						</div>
 						
 						<!-- 좋아요 개수 표기 -->
 						<div class="mainContentLikeCount">
 							<div class="ml-3">
-								<b>좋아요 10개</b>
+								<b>좋아요 ${postDetail.likeCount }개</b>
 							</div>
 						</div>
 						
 						<!-- 게시글 -->
 						<div class="ml-3">
-							<b>${post.userName }</b> ${post.content }
+							<b>${postDetail.post.userName }</b> ${postDetail.post.content }
 						</div>
 						
 						<!-- 댓글 -->
@@ -112,50 +113,27 @@
 						<div class="ml-3">
 							<span class="display-3"><i class="bi bi-person-circle"></i></span>
 							<b class="ml-4">${userName }</b>
+							
+							<!-- 로그아웃 -->
 							<c:if test="${not empty userName }">
 								<a href="/user/sign_out" class="ml-5">로그아웃</a>
 							</c:if>
 						</div>
 						
+						<!-- 회원님을 위한 추천 -->
 						<div class="ml-3 mt-5">
 							<b class="text-secondary">회원님을 위한 추천</b>
 						</div>
 						<div class="mt-4">
+						<c:forEach var="postDetailUserName" items="${postList }">
 							<div class="d-flex justify-content-between align-items-center ml-3 mr-3">
 								<div class="d-flex align-items-center">
 									<h2><i class="bi bi-person-circle"></i></h2>
-									<b class="ml-4">pro</b>
+									<b class="ml-4">${postDetailUserName.post.userName }</b>
 								</div>
 								<a href="#"><b class="text-primary">팔로우</b></a>
 							</div>
-							<div class="d-flex justify-content-between align-items-center ml-3 mr-3">
-								<div class="d-flex align-items-center">
-									<h2><i class="bi bi-person-circle"></i></h2>
-									<b class="ml-4">user1</b>
-								</div>
-								<a href="#"><b class="text-primary">팔로우</b></a>
-							</div>
-							<div class="d-flex justify-content-between align-items-center ml-3 mr-3">
-								<div class="d-flex align-items-center">
-									<h2><i class="bi bi-person-circle"></i></h2>
-									<b class="ml-4">user2</b>
-								</div>
-								<a href="#"><b class="text-primary">팔로우</b></a>
-							</div>
-							<div class="d-flex justify-content-between align-items-center ml-3 mr-3">
-								<div class="d-flex align-items-center">
-									<h2><i class="bi bi-person-circle"></i></h2>
-									<b class="ml-4">user3</b>
-								</div>
-								<a href="#"><b class="text-primary">팔로우</b></a>
-							</div>
-							<div class="d-flex justify-content-between align-items-center ml-3 mr-3">
-								<div class="d-flex align-items-center">
-									<h2><i class="bi bi-person-circle"></i></h2>
-									<b class="ml-4">user4</b>
-								</div>
-								<a href="#"><b class="text-primary">팔로우</b></a>
-							</div>
+						</c:forEach>
 						</div>
 					</div>
 					<!-- footer -->

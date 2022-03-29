@@ -16,6 +16,13 @@ public interface PostDAO {
 			@Param("userName") String userName,
 			@Param("content") String content,
 			@Param("imagePath") String imagePath);
+	
+	
+	// 게시물 가져오기
+	public List<PostModel> selectPostList();
+	
+	
+	
 
 	// 추후 다시 진행하기!
 	// 사진 업로드(분리 버전_사진)
@@ -37,7 +44,6 @@ public interface PostDAO {
 	
 	
 	
-	// 게시물 가져오기
-	public List<PostModel> selectPostList();
+
 	
 }

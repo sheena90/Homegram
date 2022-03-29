@@ -15,5 +15,12 @@ public class LikeBO {
 		
 		return likeDAO.insertLike(postId, userId);
 	}
+	
+	
+	// postId 기반으로 like 갯수를 가져오기
+	public int getLikeCount(int postId) {
+		return likeDAO.selectLikeCount(postId);
+	}
+	
 
 }

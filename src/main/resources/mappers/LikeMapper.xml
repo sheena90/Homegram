@@ -19,5 +19,17 @@
 			, now()
 		)
 	</insert>
+	
+	
+	<!-- postId 기반으로 like 갯수를 가져오기 -->
+	<select id="selectLikeCount" parameterType="int" resultType="int">
+		SELECT 
+		 	count(*)
+		FROM
+			`like`
+		WHERE
+			`postId` = #{postId}
+	
+	</select>
 
 </mapper>

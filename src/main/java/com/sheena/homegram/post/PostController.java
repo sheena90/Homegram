@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sheena.homegram.post.bo.PostBO;
-import com.sheena.homegram.post.model.PostModel;
+import com.sheena.homegram.post.model.PostDetailModel;
 
 @Controller
 @RequestMapping("/post")
@@ -25,7 +25,7 @@ public class PostController {
 		
 		// 게시물 가져오기
 		
-		List<PostModel> postList = postBO.getPostList();
+		List<PostDetailModel> postList = postBO.getPostList();
 		
 		model.addAttribute("postList", postList);
 		
