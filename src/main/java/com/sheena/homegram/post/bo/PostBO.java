@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sheena.homegram.common.FileManagerService;
 import com.sheena.homegram.post.comment.bo.CommentBO;
+import com.sheena.homegram.post.comment.model.CommentModel;
 import com.sheena.homegram.post.dao.PostDAO;
 import com.sheena.homegram.post.like.bo.LikeBO;
 import com.sheena.homegram.post.model.PostDetailModel;
@@ -43,6 +44,7 @@ public class PostBO {
 		
 		List<PostModel> postList = postDAO.selectPostList();
 		
+		
 		List<PostDetailModel> postDetailList = new ArrayList<>();
 		
 		// 포스트마다 댓글 좋아요 가져오기
@@ -51,8 +53,8 @@ public class PostBO {
 			// postId 기반으로 like 갯수를 가져오기
 			int likeCount = likeBO.getLikeCount(post.getId());
 			
-			// 댓글 얻어오기
-			int comment = commentBO.getComment(post.getId());
+			// 댓글 리스트 얻어오기
+			List<CommentModel> commentList = commentBO.getCommentList(post.getId());
 			
 			// post id를 이용해서 좋아요 개수, 댓글 리스트 조회
 			PostDetailModel postDetail = new PostDetailModel();
@@ -60,6 +62,9 @@ public class PostBO {
 			postDetail.setPost(post);
 			// likeCount set
 			postDetail.setLikeCount(likeCount);
+			
+			
+			postDetail.setCommentList(commentList);
 			
 			
 			postDetailList.add(postDetail);

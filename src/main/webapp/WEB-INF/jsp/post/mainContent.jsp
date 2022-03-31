@@ -85,22 +85,22 @@
 						
 						<!-- 댓글 -->
 						<div>
+						
 							<div class="mainContentComment d-flex align-items-end mb-2">
 								<b class="text-secondary ml-3">댓글</b>
 							</div>
-							<div class="ml-3">
-								<b>pro</b> 너무 이뻐요!
-							</div>
-							<div class="ml-3">
-								<b>kim</b> 봄 느낌 물씬!!
-							</div>
+							<c:forEach var="comment" items="${postDetail.commentList }">
+								<div class="ml-3">
+									<b>${comment.userName }</b> ${comment.content }
+								</div>
+							</c:forEach>
 						</div>
 						
 						<!-- 댓글 달기 -->
 						<hr class="mt-3">
 						<div class="mainContentWriteComment d-flex">
-							<input type="text" class="form-control border-0" placeholder="댓글 달기..." id="commentInput${post.id }">
-							<button type="button" class="btn btn-link commentBtn" data-post-id="${post.id }"><b class="text-info">게시</b></button>
+							<input type="text" class="form-control border-0" placeholder="댓글 달기..." id="commentInput${postDetail.post.id }">
+							<button type="button" class="btn btn-link commentBtn" data-post-id="${postDetail.post.id }"><b class="text-info">게시</b></button>
 						</div>
 					</div>
 					</c:forEach>				

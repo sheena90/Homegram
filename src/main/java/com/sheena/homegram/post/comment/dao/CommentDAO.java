@@ -1,7 +1,11 @@
 package com.sheena.homegram.post.comment.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import com.sheena.homegram.post.comment.model.CommentModel;
 
 @Repository
 public interface CommentDAO {
@@ -16,5 +20,5 @@ public interface CommentDAO {
 	
 	
 	// postId 기반으로 comment 가져오기
-	public int selectComment(@Param("postId") int postId);
+	public List<CommentModel> selectComment(@Param("postId") int postId);
 }
