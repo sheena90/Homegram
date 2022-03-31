@@ -2,6 +2,9 @@ package com.sheena.homegram.post;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +24,15 @@ public class PostController {
 
 	// MainContent Page
 	@GetMapping("/mainContent_view")
-	public String mainContentView(Model model) {
+	public String mainContentView(Model model, HttpServletRequest request) {
+		
+		// 좋아요 클릭 기능을 위한 PostBO에서 userId를 꺼내오기 위한 코드
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
 		
 		// 게시물 가져오기
-		
-		List<PostDetailModel> postList = postBO.getPostList();
+		// 좋아요 클릭 기능을 위한 PostBO에서 userId를 꺼내오기 위한 코드 추가
+		List<PostDetailModel> postList = postBO.getPostList(userId);
 		
 		model.addAttribute("postList", postList);
 		

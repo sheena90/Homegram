@@ -39,8 +39,9 @@ public class PostBO {
 	
 	
 	// 게시물 가져오기
-	// 메인화면 전체 게시물 가져오기
-	public List<PostDetailModel> getPostList() {
+	// 메인화면 전체 게시물 가져오기(좋아요, 댓글)
+	// 해당 코드에 좋아요 클릭 기능도 추가
+	public List<PostDetailModel> getPostList(int userId) {
 		
 		List<PostModel> postList = postDAO.selectPostList();
 		
@@ -56,6 +57,9 @@ public class PostBO {
 			// 댓글 리스트 얻어오기
 			List<CommentModel> commentList = commentBO.getCommentList(post.getId());
 			
+			// 로그인한 사용자가 좋아요를 눌렀는지 여부
+			boolean isLike = likeBO.isLike(post.getId(), userId);
+			
 			// post id를 이용해서 좋아요 개수, 댓글 리스트 조회
 			PostDetailModel postDetail = new PostDetailModel();
 			//post 데이터 set
@@ -63,8 +67,11 @@ public class PostBO {
 			// likeCount set
 			postDetail.setLikeCount(likeCount);
 			
-			
+			// commentList set
 			postDetail.setCommentList(commentList);
+			
+			// isLike(로그인한 사용자가 좋아요 눌렀는지 여부_boolean 형태) set
+			postDetail.setLike(isLike);
 			
 			
 			postDetailList.add(postDetail);

@@ -31,5 +31,17 @@
 			`postId` = #{postId}
 	
 	</select>
+	
+	<!-- 누가 어떤 게시물에 좋아요를 눌렀는지 -->
+	<select id="selectLikeCountByUserId" parameterType="map" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			`like`
+		WHERE
+			`postId` = #{postId}
+			AND `userId` = #{userId}
+	
+	</select>
 
 </mapper>

@@ -67,8 +67,22 @@
 						
 						<!-- 좋아요, 댓글 아이콘 -->
 						<div class="mainContentLike d-flex justify-content-start align-items-center">
-							<div class="ml-3"><a href="#" class="likeBtn" data-post-id="${postDetail.post.id }"><i class="bi bi-heart text-dark"></i></a></div>
-							<div class="ml-3"><i class="bi bi-chat-square"></i></div>
+							<div class="ml-3">
+								<!-- boolean 형태의 is*** 값을 가져올때, is를 뺀 나머지 소문자 형태로 쓰인다 -->
+								<c:choose>
+									<c:when test="${postDetail.like }">
+										<!-- 좋아요 형태 -->
+										<i class="bi bi-heart-fill text-danger"></i>
+									</c:when>
+									<c:otherwise>
+										<!-- 좋아요 아닌 상태 -->
+										<a href="#" class="likeBtn" data-post-id="${postDetail.post.id }"><i class="bi bi-heart text-dark"></i></a>
+									</c:otherwise>
+								</c:choose>						
+							</div>
+							<div class="ml-3">
+								<i class="bi bi-chat-square"></i>
+							</div>
 						</div>
 						
 						<!-- 좋아요 개수 표기 -->
