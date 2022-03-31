@@ -11,6 +11,12 @@ public interface LikeDAO {
 			@Param("userId") int userId);
 	
 	
+	// '좋아요' 취소(dao-->쿼리 입장)
+	public int deleteLike(
+			@Param("postId") int postId,
+			@Param("userId") int userId);
+	
+	
 	// postId 기반으로 like 갯수를 가져오기
 	public int selectLikeCount(@Param("postId") int postId);
 	

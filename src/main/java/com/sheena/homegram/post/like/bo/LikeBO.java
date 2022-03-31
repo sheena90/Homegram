@@ -17,6 +17,12 @@ public class LikeBO {
 	}
 	
 	
+	// '좋아요' 취소
+	public int unLike(int postId, int userId) {
+		return likeDAO.deleteLike(postId, userId);
+	}
+	
+	
 	// postId 기반으로 like 갯수를 가져오기
 	public int getLikeCount(int postId) {
 		return likeDAO.selectLikeCount(postId);

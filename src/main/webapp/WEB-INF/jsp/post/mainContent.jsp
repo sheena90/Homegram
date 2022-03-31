@@ -72,7 +72,7 @@
 								<c:choose>
 									<c:when test="${postDetail.like }">
 										<!-- 좋아요 형태 -->
-										<i class="bi bi-heart-fill text-danger"></i>
+										<a href="#" class="unlikeBtn" data-post-id="${postDetail.post.id }"><i class="bi bi-heart-fill text-danger"></i></a>
 									</c:when>
 									<c:otherwise>
 										<!-- 좋아요 아닌 상태 -->
@@ -228,6 +228,32 @@
 					}
 				});
 				
+			});
+			
+			$(".unlikeBtn").on("click", function(e) {
+				// 해당 태그에 있던 모든 속성, 기능들을 취소해줌.(여기서는 a태그의 페이지 이동을 취소해줌)
+				e.preventDefault();
+				
+				// postId 가져오기
+				let postId = $(this).data("post-id");
+				
+				// unlike api 호출
+				$.ajax({
+					type:"get",
+					url:"/post/unlike",
+					data:{"postId":postId},
+					success:function(data) {
+						
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("좋아요 취소 실패");
+						}
+					},
+					error:function() {
+						alert("좋아요 취소 에러");
+					}
+				});
 			});
 		});
 	</script>

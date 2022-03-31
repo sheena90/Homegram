@@ -44,4 +44,28 @@ public class LikeRestController {
 		
 		return result;
 	}
+	
+	
+	// '좋아요' 취소
+	@GetMapping("/unlike")
+	public Map<String, String> unlike(
+			// 어떤 글에 대한 취소인지(postId, userId)
+			@RequestParam("postId") int postId,
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = likeBO.unLike(postId, userId);
+		
+		Map<String, String> result = new HashMap<>();
+		// 삭제가 안된 상태를 기반으로 조건 만들기 (다른것 과, 비교 할 때 반대로 됨)
+		if(count == 0) {
+			result.put("result", "fail");
+		} else {
+			result.put("result", "success");
+		}
+		
+		return result;
+	}
 }
