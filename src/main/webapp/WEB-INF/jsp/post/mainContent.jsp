@@ -54,10 +54,17 @@
 					<!-- 상세 업데이트 -->
 					<c:forEach var="postDetail" items="${postList }">
 					<div class="mainContentNewContent mt-3">
-						<!-- 유저 정보 -->
+					
+						<!-- 유저 정보(이름, 삭제 아이콘) -->
 						<div class="mainContentNameInfo d-flex justify-content-between align-items-center">
-							<div class="ml-3"><b>${postDetail.post.userName }</b></div>
-							<div class="mr-3"><b><i class="bi bi-three-dots"></i></b></div>
+							<div class="ml-3">
+								<b>${postDetail.post.userName }</b>
+							</div>
+							<div class="mr-3">
+								<a href="#" class="text-dark moreBtn" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#moreModal">
+									<b><i class="bi bi-three-dots"></i></b>
+								</a>
+							</div>
 						</div>
 						
 						<!-- 이미지 -->
@@ -161,6 +168,17 @@
 	
 	</div>
 	
+	<!-- Modal -->
+	<div class="modal fade" id="moreModal">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body text-center">
+	      	<a href="#" id="deleteBtn">삭제하기</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
 	<script>
 		$(document).ready(function() {
 			
@@ -230,6 +248,8 @@
 				
 			});
 			
+			
+			// 좋아요 취소 이베트 등록
 			$(".unlikeBtn").on("click", function(e) {
 				// 해당 태그에 있던 모든 속성, 기능들을 취소해줌.(여기서는 a태그의 페이지 이동을 취소해줌)
 				e.preventDefault();
@@ -254,6 +274,45 @@
 						alert("좋아요 취소 에러");
 					}
 				});
+			});
+			
+			
+			
+			
+			// 게시물 삭제 이벤트 등록 (moreBtn, deleteBtn)
+			$(".moreBtn").on("click", function(e) {
+				// 해당 태그에 있던 모든 속성, 기능들을 취소해줌.(여기서는 a태그의 페이지 이동을 취소해줌)
+				e.preventDefault();
+				
+				let postId = $(this).data("post-id");
+				
+				// more 버튼을 클릭했을 때, 데이터(postId) 심기
+				$("#deleteBtn").data("post-id", postId); // <a href="" data-post-id="값">과 같다
+				
+			});
+			
+			$("#deleteBtn").on("click", function(e) {
+				e.preventDefault();
+				
+				let postId = $(this).data("post-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/post/delete",
+					data:{"postId":postId},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+					},
+					error:function() {
+						alert("삭제 에러");
+					}
+				
+				});
+				
 			});
 		});
 	</script>

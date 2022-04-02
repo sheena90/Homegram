@@ -23,6 +23,14 @@ public interface PostDAO {
 	
 	
 	
+	// 게시물 삭제하기
+	public int deletePost(@Param("postId") int postId);
+	
+	// 게시물 삭제를 위한 postId 가져오기
+	public PostModel selectPost(@Param("postId") int postId);
+	
+	
+	
 
 	// 추후 다시 진행하기!
 	// 사진 업로드(분리 버전_사진)

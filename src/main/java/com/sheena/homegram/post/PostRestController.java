@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +49,29 @@ public class PostRestController {
 	}
 	
 	
+	// 게시물 삭제하기
+	@GetMapping("/delete")
+	public Map<String, String> delete(
+			@RequestParam("postId") int postId,
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = postBO.deletePost(postId, userId);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
+	
+	
 	
 	// 추후 다시 진행하기!
 	// 사진 업로드(분리 버전_사진)
@@ -74,31 +98,31 @@ public class PostRestController {
 //	}
 	
 	
-	// 추후 다시 진행하기!
-	// 새 게시물 공유하기(분리 버전_게시물)
-	@PostMapping("/createSentence")
-	public Map<String, String> createSentence(
-			@RequestParam(value = "content", required = false) String content,
-			@RequestParam("file") MultipartFile file,
-			HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		int userId = (Integer)session.getAttribute("userId");
-		String userName = (String)session.getAttribute("userName");
-		
-		Map<String, String> result = new HashMap<>();
-		
-		int count = postBO.addPost(userId, userName, content, file);
-		
-		if(count == 1) {
-			result.put("result", "success");
-		} else {
-			result.put("result", "fail");
-		}
-		
-		return result;
-		
-		
-	}
+//	// 추후 다시 진행하기!
+//	// 새 게시물 공유하기(분리 버전_게시물)
+//	@PostMapping("/createSentence")
+//	public Map<String, String> createSentence(
+//			@RequestParam(value = "content", required = false) String content,
+//			@RequestParam("file") MultipartFile file,
+//			HttpServletRequest request) {
+//		
+//		HttpSession session = request.getSession();
+//		int userId = (Integer)session.getAttribute("userId");
+//		String userName = (String)session.getAttribute("userName");
+//		
+//		Map<String, String> result = new HashMap<>();
+//		
+//		int count = postBO.addPost(userId, userName, content, file);
+//		
+//		if(count == 1) {
+//			result.put("result", "success");
+//		} else {
+//			result.put("result", "fail");
+//		}
+//		
+//		return result;
+//		
+//		
+//	}
 
 }

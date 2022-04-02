@@ -44,5 +44,10 @@ public class LikeBO {
 		return (count != 0);
 	}
 	
+	
+	// postId 기준으로 좋아요 삭제 메소드 만들기 --> likeDAO 수행 --> postBO에서 사용
+	public int deleteLikeByPost(int postId) {
+		return likeDAO.deleteLikeByPostId(postId);
+	}
 
 }

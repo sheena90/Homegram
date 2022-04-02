@@ -30,6 +30,45 @@
 
 
 
+	<!-- 게시물 가져오기 -->
+	<select id="selectPostList" resultType="com.sheena.homegram.post.model.PostModel">
+		SELECT
+			`id`
+			, `userId`
+			, `userName`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`post`
+		ORDER BY `id` DESC
+	</select>
+	
+
+
+	<!-- 게시물 삭제하기 -->
+	<delete id="deletePost">
+		DELETE FROM `post`
+		WHERE
+			`id` = #{postId}
+	</delete>
+	<!-- 게시물 삭제를 위한 postId 가져오기 -->
+	<select id="selectPost" parameterType="int" resultType="com.sheena.homegram.post.model.PostModel">
+		SELECT
+			`id`
+			, `userId`
+			, `userName`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{postId}
+	</select>
+
 
 	<!-- 분리버전(사진 업로드) -->
 	<!--  
@@ -82,20 +121,6 @@
 	-->
 
 
-	<!-- 게시물 가져오기 -->
-	<select id="selectPostList" resultType="com.sheena.homegram.post.model.PostModel">
-		SELECT
-			`id`
-			, `userId`
-			, `userName`
-			, `content`
-			, `imagePath`
-			, `createdAt`
-			, `updatedAt`
-		FROM
-			`post`
-		ORDER BY `id` DESC
-	</select>
 
 </mapper>  
   

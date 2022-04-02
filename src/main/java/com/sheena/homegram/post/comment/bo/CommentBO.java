@@ -27,4 +27,10 @@ public class CommentBO {
 		 return commentDAO.selectComment(postId);
 		
 	}
+	
+	
+	// postId 기준으로 댓글 삭제 메소드 만들기 --> commentDAO 수행 --> postBO에서 사용
+	public int deleteCommentByPostId(int postId) {
+		return commentDAO.deleteCommentByPostId(postId);
+	}
 }

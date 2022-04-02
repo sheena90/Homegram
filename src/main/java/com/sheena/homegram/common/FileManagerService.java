@@ -64,4 +64,54 @@ public class FileManagerService {
 		// /images/6_12912098/test.png
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
+	
+	
+	// 파일 삭제
+		public static boolean removeFile(String filePath) {
+			
+			// 파일이 없는 경우의 예외처리
+			if(filePath == null) {
+				logger.error("FileManagerService-removeFile : 파일 없음");
+				return false;
+			}
+			
+			// filePath 경로:/images/2_35975145/test.png
+			// 실제 파일 경로: C:\\@sheena\\Web\\Spring Project\\homegram\\upload\\images\\2_35975145/test.png
+			
+			// 경로를 문자열로 만들기, 실제 파일 경로: FILE_UPLOAD_PATH + 지우고 싶은 문자열(2_35975145/test.png)
+			String realFilePath = FILE_UPLOAD_PATH + filePath.replace("/images/", "");
+			
+			// 파일 삭제 (path는 전체 파일 경로)
+			Path path = Paths.get(realFilePath);
+			// 파일이 있는지 확인
+			if(Files.exists(path)) {
+				try {
+					Files.delete(path);
+				} catch (IOException e) {
+					logger.error("FileManagerService-removeFile : 파일 삭제 실패");
+					e.printStackTrace();
+					return false;
+				}
+			}
+			
+			// 실제 파일 경로: C:\\@sheena\\Web\\Spring Project\\homegram\\upload\\images\\2_35975145/test.png
+			// 디렉토리 삭제
+			// 디렉토리 경로 : C:\\@sheena\\Web\\Spring Project\\homegram\\upload\\images\\2_35975145
+			// path가 위에서 이미 사용이 끝나서 새로운 객체를 생성하는데 사용, 즉 디렉토리 객체
+			path = path.getParent();
+			
+			// 디렉토리 존재 여부 확인
+			if(Files.exists(path)) {
+				try {
+					Files.delete(path);
+				} catch (IOException e) {
+					logger.error("FileManagerService-removeFile : 디렉토리 삭제 실패");
+					e.printStackTrace();
+					return false;
+				}
+			}
+			
+			return true;
+			
+		}
 }

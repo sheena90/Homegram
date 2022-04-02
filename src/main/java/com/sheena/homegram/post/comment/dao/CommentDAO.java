@@ -21,4 +21,11 @@ public interface CommentDAO {
 	
 	// postId 기반으로 comment 가져오기
 	public List<CommentModel> selectComment(@Param("postId") int postId);
+	
+	
+	// postId 기준으로 댓글 삭제 --> commentDAO 수행 --> postBO에서 사용
+	public int deleteCommentByPostId(@Param("postId") int postId);
+	
+	
+
 }

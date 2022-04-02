@@ -43,5 +43,13 @@
 		WHERE
 			`postId` = #{postId}
 	</select>
+	
+	
+	<!-- postId 기준으로 댓글 삭제 -->
+	<delete id="deleteCommentByPostId" parameterType="int">
+		DELETE FROM `comment`
+		WHERE
+			`postId` = #{postId}
+	</delete>
 
 </mapper>
