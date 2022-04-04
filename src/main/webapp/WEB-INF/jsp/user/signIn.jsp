@@ -23,21 +23,21 @@
 			
 			<section>
 				<form id="loginForm">
-				<div>
-					<input type="text" id="loginIdInput" class="form-control mt-2" placeholder="아이디">
-					<input type="password" id="passwordInput" class="form-control mt-2" placeholder="비밀번호">
-					
-					<button type="submit" id="joinBtn" class="button btn btn-block mt-3 mb-3">로그인</button>
-				</div>
-				<div class="line">
-					또는
-				</div>
-				<div class="mt-3">
-					<a href="#" class="otherLoginBtn btn form-control">KakaoTalk으로 로그인</a>
-				</div>
-				<div class="text-center mt-3 mb-3">
-					<a href="/user/findPassword_view" class="text-secondary" id="findPasswordBtn"><small>비밀번호를 잊으셨나요?</small></a>
-				</div>
+					<div>
+						<input type="text" id="loginIdInput" class="form-control mt-2" placeholder="아이디">
+						<input type="password" id="passwordInput" class="form-control mt-2" placeholder="비밀번호">
+						
+						<button type="submit" id="joinBtn" class="button btn btn-block mt-3 mb-3">로그인</button>
+					</div>
+					<div class="line">
+						또는
+					</div>
+					<div class="mt-3">
+						<a href="#" class="otherLoginBtn btn form-control">KakaoTalk으로 로그인</a>
+					</div>
+					<div class="text-center mt-3 mb-3">
+						<a href="/user/findPassword_view" class="text-secondary" id="findPasswordBtn"><small>비밀번호를 잊으셨나요?</small></a>
+					</div>
 				</form>
 			</section>
 		</div>

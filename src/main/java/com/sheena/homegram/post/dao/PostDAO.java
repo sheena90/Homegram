@@ -15,7 +15,15 @@ public interface PostDAO {
 			@Param("userId") int userId, 
 			@Param("userName") String userName,
 			@Param("content") String content,
+			@Param("profile") String profile,
 			@Param("imagePath") String imagePath);
+	
+	
+	
+	// 프로필 편집
+	public int updateProfile(
+			@Param("postId") int postId,
+			@Param("profile") String profile);
 	
 	
 	// 게시물 가져오기

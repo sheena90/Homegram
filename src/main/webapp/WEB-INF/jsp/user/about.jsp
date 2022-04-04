@@ -19,7 +19,14 @@
 	<div id="wrap">
 		<div class="d-flex justify-content-between align-items-end ">
 			<div class="pt-3">
-				<a href="/user/homegram"><img width="300" alt="logo" src="/static/image/logo4.PNG"></a>
+				<c:choose>
+					<c:when test="${not empty userName }">
+						<a href="/post/mainContent_view"><img width="300" alt="logo" src="/static/image/logo4.PNG"></a>
+					</c:when>
+					<c:otherwise>
+						<a href="/user/homegram"><img width="300" alt="logo" src="/static/image/logo4.PNG"></a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div>
 				<!-- 로그아웃 -->

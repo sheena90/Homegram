@@ -22,23 +22,40 @@
 		<div class="mainContentHeader"> <!-- 추후 header로 수정 예정 -->
 			<div class="d-flex justify-content-between align-items-center bg-white">
 				<div>
-					<a href="/user/homegram"><img width="200" alt="logo" src="/static/image/logo4.PNG"></a>
+					<img width="200" alt="logo" src="/static/image/logo4.PNG">
 				</div>
 				<div>
 					<input type="text" placeholder="검색" class="form-control">
 				</div>
-				<div>
+				<div class="d-flex">
 					<h4>
-						<a href="#" class="mr-2 text-dark">
+						<a href="/post/mainContent_view" class="mr-2 text-dark"> 
 							<i class="bi bi-house-door-fill mr-3"></i>
-						</a>
-						<a href="/post/newPost_view" class="mr-2 text-dark">
+						</a> 
+						<a href="/post/newPost_view" class="mr-2 text-dark"> 
 							<i class="bi bi-plus-square mr-3"></i>
 						</a>
-						<a href="#" class="mr-2 text-dark">
+						<a href="#" class="mr-2 text-dark"> 
 							<i class="bi bi-heart mr-3"></i>
+						</a> 
+					</h4>
+					<!-- 유저 아이콘에 대한 dropdown 적용 : 프로필, 로그아웃 -->
+					<div class="dropdown d-flex align-items-center">
+						
+						<a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-bs-expanded="false" class="mr-2 text-dark"> 
+							<h4><i class="bi bi-person-circle mr-3"></i></h4>
 						</a>
-					</h4>	
+						
+						<ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="dropdownMenuLink">
+							<li><a class="dropdown-item" href="/post/profile_view">프로필</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<c:if test="${not empty userName }">
+							<li>
+								<a class="dropdown-item text-primary" href="/user/sign_out">로그아웃</a>
+							</li>
+							</c:if>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -57,9 +74,17 @@
 					
 						<!-- 유저 정보(이름, 삭제 아이콘) -->
 						<div class="mainContentNameInfo d-flex justify-content-between align-items-center">
-							<div class="ml-3">
-								<b>${postDetail.post.userName }</b>
+							<!-- 프로필&이름 -->
+							<div class="d-flex align-items-center m-1">
+								<div class="mainContentProfileBox">
+									<img class="profile" src="https://i.pinimg.com/originals/e3/cb/8e/e3cb8eeb33d7d8f7a5ac65a08bc255ed.jpg">
+								</div>
+								<div class="ml-3">
+									<b>${postDetail.post.userName }</b>
+								</div>
 							</div>
+							
+							<!-- 삭제 아이콘 -->
 							<div class="mr-3">
 								<a href="#" class="text-dark moreBtn" data-post-id="${postDetail.post.id }" data-toggle="modal" data-target="#moreModal">
 									<b><i class="bi bi-three-dots"></i></b>
@@ -131,14 +156,14 @@
 					<!-- 로그인 대상 -->
 					<div class="mainContentLoginInfo">
 						
-						<div class="ml-3">
-							<span class="display-3"><i class="bi bi-person-circle"></i></span>
-							<b class="ml-4">${userName }</b>
+						<div class="ml-3 d-flex align-items-center ">
+							<div class="mainContentProfileBox">
+								<img class="profile" src="https://i.pinimg.com/originals/e3/cb/8e/e3cb8eeb33d7d8f7a5ac65a08bc255ed.jpg">
+							</div>
+							<div>
+								<b class="ml-4">${userName }</b>
+							</div>
 							
-							<!-- 로그아웃 -->
-							<c:if test="${not empty userName }">
-								<a href="/user/sign_out" class="ml-5">로그아웃</a>
-							</c:if>
 						</div>
 						
 						<!-- 회원님을 위한 추천 -->

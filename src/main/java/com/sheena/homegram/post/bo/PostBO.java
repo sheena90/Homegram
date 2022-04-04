@@ -28,12 +28,21 @@ public class PostBO {
 	private CommentBO commentBO;
 	
 	// 통합 버전
-	public int addPost(int userId, String userName, String content, MultipartFile file) {
+	public int addPost(int userId, String userName, String content, String profile, MultipartFile file) {
 		
 		String imagePath = FileManagerService.saveFile(userId, file);
 		
-		return postDAO.insertCreatePost(userId, userName, content, imagePath);
+		return postDAO.insertCreatePost(userId, userName, content, profile, imagePath);
+		//return postDAO.insertCreatePost(userId, userName, content, imagePath);
 		
+	}
+	
+	
+	// 프로필 사진 편집
+	public int updateProfile(int userId, MultipartFile file) {
+		
+		String profile = FileManagerService.saveFile(userId, file);
+		return postDAO.updateProfile(userId, profile);
 	}
 	
 	

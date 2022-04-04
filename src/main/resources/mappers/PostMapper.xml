@@ -14,8 +14,10 @@
 			, `userName`
 			, `content`
 			, `imagePath`
+			, `profile`
 			, `createdAt`
 			, `updatedAt`
+			
 		) 
 		VALUE 
 		(
@@ -23,11 +25,24 @@
 			, #{userName}
 			, #{content}
 			, #{imagePath}
+			, #{profile}
 			, now()
 			, now()
+			
 		)
 	</insert>
-
+	
+	
+	
+	<!-- 프로필 사진 편집 -->
+	<update id="updateProfile" parameterType="map">
+			UPDATE `post`
+			SET
+				`profile` = #{profile}
+			WHERE
+				`id` = #{postId}
+	</update>
+	
 
 
 	<!-- 게시물 가져오기 -->

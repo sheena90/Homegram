@@ -48,19 +48,26 @@ public class PostController {
 	}
 	
 	
+	
+	// profile Page
+	@GetMapping("/profile_view")
+	public String profile() {
+		return "post/profile";
+	}
+	
 		
-	// 추후 분리하기_사진
-	// newPost_photo Page 
-	@GetMapping("/newPostPhoto_view")
-	public String newPostPhoto() {
-		return "post/newPost_photo";
-	}
-	
-	
-	// 추후 분리하가_게시글
-	// newPost_sentence Page
-	@GetMapping("/newPostSentence_view")
-	public String newPostSentence() {
-		return "post/newPost_sentence";
-	}
+//	// 추후 분리하기_사진
+//	// newPost_photo Page 
+//	@GetMapping("/newPostPhoto_view")
+//	public String newPostPhoto() {
+//		return "post/newPost_photo";
+//	}
+//	
+//	
+//	// 추후 분리하가_게시글
+//	// newPost_sentence Page
+//	@GetMapping("/newPostSentence_view")
+//	public String newPostSentence() {
+//		return "post/newPost_sentence";
+//	}
 }

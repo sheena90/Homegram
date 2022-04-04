@@ -28,6 +28,7 @@ public class PostRestController {
 	public Map<String, String> create(
 			// content 비필수 항목으로 설정
 			@RequestParam(value = "content", required = false) String content,
+			@RequestParam(value = "profile", required = false) String profile,
 			@RequestParam("file") MultipartFile file,
 			HttpServletRequest request) {
 		
@@ -37,7 +38,8 @@ public class PostRestController {
 		
 		Map<String, String> result = new HashMap<>();
 		
-		int count = postBO.addPost(userId, userName, content, file);
+		int count = postBO.addPost(userId, userName, content, profile, file);
+		//int count = postBO.addPost(userId, userName, content, file);
 		
 		if(count == 1) {
 			result.put("result", "success");
@@ -46,6 +48,30 @@ public class PostRestController {
 		}
 		
 		return result;
+	}
+	
+	
+	// 프로필 사진 편집
+	@PostMapping("/profile")
+	public Map<String, String> profile(
+			@RequestParam("file") MultipartFile file,
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		Map<String, String> result = new HashMap<>();
+		
+		int count = postBO.updateProfile(userId, file);
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+		
 	}
 	
 	
